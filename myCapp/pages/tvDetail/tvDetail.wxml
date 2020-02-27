@@ -1,0 +1,6 @@
+<!-- pages/tvDetail/tvDetail.wxml -->
+<view>
+    <video class="video" src="{{src}}" controls autoplay binderror="playErr">
+        <!-- <Barrage class="barrage" /> -->
+    </video>
+</view>

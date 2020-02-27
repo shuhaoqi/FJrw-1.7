@@ -1,0 +1,12 @@
+.navbar-box {
+  white-space: nowrap;
+  overflow-x: scroll;
+  padding: 0 1.024rem;
+}
+.navbar-box view {
+  display: inline-block;
+  margin-right: 38px;
+}
+.nav-active {
+  border-bottom: 2px solid orange;
+}

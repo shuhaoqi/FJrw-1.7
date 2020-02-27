@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+      }
+      .nav-wrap {
+        position: relative;
+        /* *z-index: 2; */
+        width: 100%;
+        background: #f60;
+      }
+      .nav {
+        position: relative;
+        width: 770px;
+        height: 40px;
+        margin: 0 auto;
+        padding-left: 190px;
+      }
+
+      .goods {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 190px;
+        height: 40px;
+      }
+      .title {
+        display: block;
+        height: 40px;
+        padding-left: 60px;
+        line-height: 40px;
+        color: #fff;
+      }
+      .all-goods {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 186px;
+        height: 407px;
+        background: #fafafa;
+        border: solid #f60;
+        border-width: 0 2px 2px;
+        overflow: visible;
+      }
+
+      .nav-list li {
+        height: 40px;
+        list-style-type: none;
+        float: left;
+        padding-left: 40px;
+        line-height: 40px;
+        color: #fff;
+        font-size: 15px;
+      }
+
+      body {
+        line-height: 2em;
+        background-color: #ffffff;
+        font-family: arial, helvetica, sans-serif;
+        color: #666666;
+        font-size: 12px;
+      }
+
+      a:hover {
+        color: #cd0606;
+        text-decoration: underline;
+      }
+
+      /* hc_lnav */
+
+      .hc_lnav {
+        z-index: 9999;
+        position: relative;
+        width: 190px;
+        margin: 40px 0 0 120px;
+      }
+
+      .hc_lnav .allbtn {
+        z-index: 99999;
+        position: relative;
+        margin: -78px -120px;
+      }
+
+      .hc_lnav .allbtn h2 {
+        font-size: 14px;
+        box-shadow: 2px 0px 6px -3px #DF7840;
+        -webkit-box-shadow: 2px 0px 6px -3px #DF7840;
+        -moz-box-shadow: 2px 0px 6px -3px #DF7840;
+      }
+
+      .hc_lnav .allbtn h2 a {
+        line-height: 36px;
+        background-color: #DF7840;
+        padding-left: 10px;
+        width: 180px;
+        display: block;
+        font-family: 微软雅黑, 黑体;
+        height: 36px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: normal;
+      }
+
+      .hc_lnav .allbtn h2 a:hover {
+        background-color: #ee702e;
+        text-decoration: none;
+      }
+
+      .hc_lnav .allbtn ul {
+        z-index: 99999;
+        position: absolute;
+        background-color: #ee702e;
+        width: 190px;
+        display: block; /*可以设置菜单是显示还是隐藏   display：none；为隐藏*/
+        height: 486px;
+        top: 36px;
+        left: 0px;
+      }
+
+      body.hc_home .hc_lnav .allbtn ul {
+        display: block;
+      }
+
+      body.hc_list .hc_lnav .allbtn ul {
+        display: block;
+      }
+
+      .hc_lnav .allbtn ul li {
+        padding-bottom: 7px;
+        zoom: 1;
+        clear: both;
+        cursor: default;
+      }
+
+      .hc_lnav .allbtn ul li .tx {
+        background-image: url(../images/header/header_bg1.png);
+        line-height: 35px;
+        background-color: #ee702e;
+        padding-left: 10px;
+        background-repeat: no-repeat;
+        background-position: right center;
+        height: 35px;
+        _background-image: none;
+      }
+
+      .hc_lnav .allbtn ul li .tx a {
+        font-family: 微软雅黑, 黑体;
+        color: #ffffff;
+        font-size: 14px;
+        -webkit-transition: color 0.1s ease-out 0s;
+        -moz-transition: color 0.1s ease-out 0s;
+        -ms-transition: color 0.1s ease-out 0s;
+        -o-transition: color 0.1s ease-out 0s;
+        transition: color 0.1s ease-out 0s;
+      }
+
+      .hc_lnav .allbtn ul li .tx a i {
+        line-height: 25px;
+        margin-top: 5px;
+        width: 25px;
+        background-position: 0px 0px;
+        float: left;
+        height: 25px;
+        margin-right: 10px;
+        text-decoration: none;
+      }
+      .hc_lnav .allbtn ul li.a4 .tx a i {
+        background-image: url(../images/header_ico4.png);
+      }
+
+      .hc_lnav .allbtn ul li dl {
+        zoom: 1;
+        color: #ffffff;
+        clear: both;
+        overflow: auto;
+        padding-top: 4px;
+      }
+
+      .hc_lnav .allbtn ul li dl a {
+        line-height: 22px;
+        white-space: nowrap;
+        float: left;
+        color: #d9e7ce;
+        margin-left: 6px;
+        margin-right: 6px;
+        -webkit-transition: color 0.1s ease-out 0s;
+        -moz-transition: color 0.1s ease-out 0s;
+        -ms-transition: color 0.1s ease-out 0s;
+        -o-transition: color 0.1s ease-out 0s;
+        transition: color 0.1s ease-out 0s;
+      }
+
+      .hc_lnav .allbtn ul li dt {
+        padding-left: 10px;
+        width: 30px;
+        float: left;
+        padding-top: 1px;
+      }
+
+      .hc_lnav .allbtn ul li dd {
+        line-height: 22px;
+        width: 150px;
+        float: left;
+        padding-top: 2px;
+      }
+
+      .hc_lnav .allbtn ul li .pop {
+        border-bottom: #599900 2px solid;
+        position: absolute;
+        border-left: medium none;
+        padding-bottom: 10px;
+        background-color: #fcfcfc;
+        min-height: 366px;
+        padding-left: 30px;
+        width: 500px;
+        padding-right: 30px;
+        display: none;
+        height: 104px;
+        border-top: medium none;
+        top: 0px;
+        border-right: #599900 2px solid;
+        padding-top: 10px;
+        left: 190px;
+        box-shadow: 4px 4px 5px -1px #999999;
+        -webkit-box-shadow: 4px 4px 5px -1px #999999;
+        -moz-box-shadow: 4px 4px 5px -1px #999999;
+      }
+
+      .hc_lnav .allbtn ul li .pop h3 {
+        display: none;
+        font-size: 14px;
+      }
+
+      .hc_lnav .allbtn ul li .pop dl {
+        padding-bottom: 6px;
+        color: #666666;
+        padding-top: 6px;
+      }
+
+      .hc_lnav .allbtn ul li .pop dl:hover {
+        background-color: #f3f3f3;
+      }
+
+      .hc_lnav .allbtn ul li .pop dl a {
+        color: #666666;
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+
+      .hc_lnav .allbtn ul li .pop dl a.un {
+        color: #a5a5a5;
+      }
+
+      .hc_lnav .allbtn ul li .pop dt {
+        padding-left: 0px;
+        width: 72px;
+      }
+
+      .hc_lnav .allbtn ul li .pop dd {
+        width: 565px;
+        margin-left: -12px;
+      }
+
+      .hc_lnav .allbtn:hover ul {
+        display: block;
+      }
+
+      .hc_lnav .allbtn ul li:hover {
+        background-color: #fcfcfc;
+      }
+
+      .hc_lnav .allbtn ul li:hover .tx {
+        background-color: #f5f5f5;
+      }
+
+      .hc_lnav .allbtn ul li:hover .tx a {
+        color: #333333;
+      }
+
+      .hc_lnav .allbtn ul li:hover .tx a i {
+        background-position: 0px -25px;
+      }
+
+      .hc_lnav .allbtn ul li:hover .pop {
+        display: block;
+        top: 0px;
+        left: 190px;
+      }
+
+      .hc_lnav .allbtn ul li:hover .pop dl a.un {
+        color: #a5a5a5;
+        text-decoration: none;
+      }
+
+      .hc_lnav .allbtn ul li:hover dl {
+        color: #6e6e6e;
+      }
+
+      .hc_lnav .allbtn ul li:hover a {
+        color: #666666;
+      }
+
+      .hc_lnav .allbtn ul li:hover a:hover {
+        color: #cd0606;
+      }
+      img{
+        width:150px;
+        height:150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-wrap">
+      <div class="nav">
+        <div class="goods">
+          <span class="title">商品分类</span>
+          <div class="all-goods">
+            <div class="hc_lnav jslist">
+              <div class="allbtn">
+                <ul style="width:190px" class="jspop box">
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>LOGO</a>
+                    </div>
+                    <div class="pop">
+                      <h3><a href="">LOGO</a></h3>
+                      <dl>
+                        <dl>
+                          <p>LOGO</p>
+                          <p>两大超值套餐任选，最低只需588元。</p>
+                          <dt>
+                            <li style="float: left;">LOGO设计</li>
+                            <li>LOGO案例</li>
+                            <li>LOGO常识</li>
+                            <li>VI常识</li>
+                          </dt>
+                          <dd>
+                            <img src="http://img3.imgtn.bdimg.com/it/u=2675664554,3073857281&fm=15&gp=0.jpg" />
+                          </dd>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>名片</a>
+                    </div>
+
+                    <div class="pop">
+                      <h3><a href="">LOGO</a></h3>
+                      <dl>
+                        <dl>
+                          <p>LOGO</p>
+                          <p>两大超值套餐任选，最低只需588元。</p>
+                          <dt>
+                            <li style="float: left;">LOGO设计</li>
+                            <li>LOGO案例</li>
+                            <li>LOGO常识</li>
+                            <li>VI常识</li>
+                          </dt>
+                          <dd>
+                            <img src="http://img3.imgtn.bdimg.com/it/u=3028809815,1144697470&fm=26&gp=0.jpg" />
+                          </dd>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>不干胶贴</a>
+                    </div>
+
+                    <div class="pop">
+                      <h3><a href="">LOGO</a></h3>
+                      <dl>
+                        <dl>
+                          <p>LOGO</p>
+                          <p>两大超值套餐任选，最低只需588元。</p>
+                          <dt>
+                            <li style="float: left;">LOGO设计</li>
+                            <li>LOGO案例</li>
+                            <li>LOGO常识</li>
+                            <li>VI常识</li>
+                          </dt>
+                          <dd>
+                            <img src="http://img3.imgtn.bdimg.com/it/u=3028809815,1144697470&fm=26&gp=0.jpg" />
+                          </dd>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>手提袋</a>
+                    </div>
+                    <div class="pop">
+                      <h3><a href="">LOGO</a></h3>
+                      <dl>
+                        <dl>
+                          <p>LOGO</p>
+                          <p>两大超值套餐任选，最低只需588元。</p>
+                          <dt>
+                            <li style="float: left;">LOGO设计</li>
+                            <li>LOGO案例</li>
+                            <li>LOGO常识</li>
+                            <li>VI常识</li>
+                          </dt>
+                          <dd>
+                            <img src="http://img2.imgtn.bdimg.com/it/u=3826995430,3223271258&fm=26&gp=0.jpg" />
+                          </dd>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>封套</a>
+                    </div>
+
+                    <div class="pop">
+                      <h3><a href="">LOGO</a></h3>
+                      <dl>
+                        <dl>
+                          <p>LOGO</p>
+                          <p>两大超值套餐任选，最低只需588元。</p>
+                          <dt>
+                            <li style="float: left;">LOGO设计</li>
+                            <li>LOGO案例</li>
+                            <li>LOGO常识</li>
+                            <li>VI常识</li>
+                          </dt>
+                          <dd>
+                            <img src="http://img0.imgtn.bdimg.com/it/u=1387671509,457399561&fm=26&gp=0.jpg" />
+                          </dd>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>不干胶贴</a>
+                    </div>
+
+                    <div class="pop">
+                      <h3><a href="">LOGO</a></h3>
+                      <dl>
+                        <dl>
+                          <p>LOGO</p>
+                          <p>两大超值套餐任选，最低只需588元。</p>
+                          <dt>
+                            <li style="float: left;">LOGO设计</li>
+                            <li>LOGO案例</li>
+                            <li>LOGO常识</li>
+                            <li>VI常识</li>
+                          </dt>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>喜帖</a>
+                    </div>
+
+                    <div class="pop">
+                      <h3><a href="">LOGO</a></h3>
+                      <dl>
+                        <dl>
+                          <p>LOGO</p>
+                          <p>两大超值套餐任选，最低只需588元。</p>
+                          <dt>
+                            <li style="float: left;">LOGO设计</li>
+                            <li>LOGO案例</li>
+                            <li>LOGO常识</li>
+                            <li>VI常识</li>
+                          </dt>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>画册</a>
+                    </div>
+
+                    <div class="pop">
+                      <h3><a href="">画册</a></h3>
+                      <dl>
+                        <dl>
+                          <h2>画册</h2>
+                          <p>专业设计师提供多种设计方案，设计印刷一站式。</p>
+                          <dt>
+                            <li>画册设计</li>
+                            <li>画册印刷</li>
+                            <li>画册欣赏</li>
+                            <li>画册常识</li>
+                          </dt>
+                          <dd>
+                            <img src="http://img5.imgtn.bdimg.com/it/u=4061789568,99255971&fm=26&gp=0.jpg" />
+                          </dd>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>优惠券</a>
+                    </div>
+
+                    <div class="pop">
+                      <h3><a href="">优惠券</a></h3>
+                      <dl>
+                        <dl>
+                          <h2>优惠券</h2>
+                          <p>设计18元起，印刷低至0.1元/张，全国包邮。</p>
+                          <dt>
+                            <li >优惠券设计</li>
+                            <li>优惠券印刷</li>
+                            <li>优惠券模板</li>
+                            <li><a href="http://www.jq22.com/" target="_blank">优惠券常识</a></li>
+                          </dt>
+                          <dd>
+                            <img src="http://img5.imgtn.bdimg.com/it/u=4061789568,99255971&fm=26&gp=0.jpg" />
+                          </dd>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+
+                  <li class="a4">
+                    <div class="tx">
+                      <a href=""><i>&nbsp;</i>喜帖</a>
+                    </div>
+
+                    <div class="pop">
+                      <h3><a href="">喜帖</a></h3>
+                      <dl>
+                        <dl>
+                          <h2>喜帖</h2>
+                          <p>时尚照片喜帖，上传照片自主DIY。</p>
+                          <dt>
+                            <li>喜帖设计</li>
+                            <li>喜帖模板</li>
+                            <li>喜帖常识</li>
+                            <li>喜帖常见问题</li>
+                          </dt>
+                          <dd>
+                            <img src="http://img5.imgtn.bdimg.com/it/u=4061789568,99255971&fm=26&gp=0.jpg" />
+                          </dd>
+                        </dl>
+                      </dl>
+                      <div class="clr"></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="nav-list cf">
+          <li>首页</li>
+          <li>优惠活动</li>
+          <li>图片素材</li>
+          <li>JS代码</li>
+          <li>关于我们</li>
+          <li>联系我们</li>
+          <li>在线留言</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

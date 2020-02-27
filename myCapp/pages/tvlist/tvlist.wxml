@@ -1,0 +1,5 @@
+<!-- pages/tvlist/tvlist.wxml -->
+<!-- 视频卡片 -->
+<view class="video-cart-box">
+    <Vidoecart wx:for="{{acrtlist}}" wx:key="index" data="{{item}}" />
+</view>

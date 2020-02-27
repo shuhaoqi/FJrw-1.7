@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>表格</title>
+    <link
+      href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!--响应式表格-->
+    <div class="table-responsive">
+      <!--普通表格-->
+      <!--<div class="table">-->
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>购买数量</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>苹果🍎</td>
+            <td>3.9¥</td>
+            <td>
+              <!-- 减 -->
+              <span style="float:left">
+                <button class="btn" id="num-jian" type="button">
+                  -
+                </button>
+              </span>
+              <!-- 数字 -->
+              <span style="float:left">
+                <input
+                  type="text"
+                  id="input-num"
+                  class="form-control"
+                  style="width:35px; font-size:15px; border:0; outline:none;background-color:rgba(0,0,0,0);
+							"
+                  placeholder="设定"
+                  value="1"
+                />
+              </span>
+              <!-- 加 -->
+              <span style="float:left">
+                <button class="btn " id="num-jia" type="button">
+                  +
+                </button>
+              </span>
+            </td>
+            <th><button>移除</button></th>
+          </tr>
+          <tr>
+            <td>香蕉🍌</td>
+            <td>4.9¥</td>
+            <td>
+              <!-- 减 -->
+              <span style="float:left">
+                <button class="btn" id="num-jian" type="button">
+                  -
+                </button>
+              </span>
+              <!-- 数字 -->
+              <span style="float:left">
+                <input
+                  type="text"
+                  id="input-num"
+                  class="form-control"
+                  style="width:35px; font-size:15px; border:0; outline:none;background-color:rgba(0,0,0,0);
+										"
+                  placeholder="设定"
+                  value="1"
+                />
+              </span>
+              <!-- 加 -->
+              <span style="float:left">
+                <button class="btn " id="num-jia" type="button">
+                  +
+                </button>
+              </span>
+            </td>
+            <th><button>移除</button></th>
+          </tr>
+          <tr>
+            <td>桃子🍑</td>
+            <td>5.8¥</td>
+            <td>
+              <!-- 减 -->
+              <span style="float:left">
+                <button class="btn" id="num-jian" type="button">
+                  -
+                </button>
+              </span>
+              <!-- 数字 -->
+              <span style="float:left">
+                <input
+                  type="text"
+                  id="input-num"
+                  class="form-control"
+                  style="width:35px; font-size:15px; border:0; outline:none;background-color:rgba(0,0,0,0);
+										"
+                  placeholder="设定"
+                  value="1"
+                />
+              </span>
+              <!-- 加 -->
+              <span style="float:left">
+                <button class="btn " id="num-jia" type="button">
+                  +
+                </button>
+              </span>
+            </td>
+            <th><button>移除</button></th>
+          </tr>
+          <tr>
+            <td>西瓜🍉</td>
+            <td>6.5¥</td>
+            <td>
+              <!-- 减 -->
+              <span style="float:left">
+                <button class="btn" id="num-jian" type="button">
+                  -
+                </button>
+              </span>
+              <!-- 数字 -->
+              <span style="float:left">
+                <input
+                  type="text"
+                  id="input-num"
+                  class="form-control"
+                  style="width:35px; font-size:15px; border:0; outline:none;background-color:rgba(0,0,0,0);
+										"
+                  placeholder="设定"
+                  value="1"
+                />
+              </span>
+              <!-- 加 -->
+              <span style="float:left">
+                <button class="btn " id="num-jia" type="button">
+                  +
+                </button>
+              </span>
+            </td>
+            <th><button onclick="addEventListener">移除</button></th>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <p>商品总价：19.6¥</p>
+      </div>
+    </div>
+    <script>
+      var num_jia = document.getElementById("num-jia");
+      var num_jian = document.getElementById("num-jian");
+      var input_num = document.getElementById("input-num");
+      //加号单击事件
+      num_jia.onclick = function() {
+        if (input_num.value >= 30) {
+          //判断最高可加到30
+          input_num.value = 30;
+        } else {
+          input_num.value = parseInt(input_num.value) + 1;
+        }
+      };
+      //减号单击事件
+      num_jian.onclick = function() {
+        if (input_num.value <= 1) {
+          //判断最低可减到1
+          input_num.value = 1;
+        } else {
+          input_num.value = parseInt(input_num.value) - 1; //执行-1
+        }
+      };
+      //删除
+      function handler() {
+        console.log(this);
+      }
+      document
+        .getElementById("myBtn")
+        .addEventListener("click", handler, false);
+      document
+        .getElementById("myBtn")
+        .removeEventListener("click", handler, false);
+    </script>
+  </body>
+</html>

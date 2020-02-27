@@ -1,0 +1,7 @@
+<template name="swiper">
+    <swiper style="padding:10px 0;height:200px" indicator-dots autoplay circular interval="{{2000}}">
+        <swiper-item wx:for="{{list}}" wx:key="index">
+            <image style="width:100%" src="{{item.imgSrc}}" lazy-load="{{true}}" />
+        </swiper-item>
+    </swiper>
+</template>

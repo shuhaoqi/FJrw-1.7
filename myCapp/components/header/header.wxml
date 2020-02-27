@@ -1,0 +1,17 @@
+<!-- components/header/header.wxml -->
+<view class="header">
+    <!-- logo -->
+    <view class="logo" style="flex:1">
+        <image src="../../assets/img/logo.jpg" lazy-load="{{true}}" />
+    </view>
+    <!-- 搜索框 -->
+    <view style="flex:5">
+        <mp-searchbar bindselectresult="selectResult" search="{{search}}" />
+    </view>
+    <view style="flex:1">
+        <mp-icon icon="me" color="black" size="{{25}}" />
+    </view>
+    <view style="flex:2">
+        <button type="warn" size="mini" plain="{{true}}" bindtap="warn">下载app</button>
+    </view>
+</view>

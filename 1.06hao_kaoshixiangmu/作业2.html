@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<script src="./vue开发版.js"></script>
+<style>
+	fieldset {
+		width: 600px;
+		margin: 0px auto;
+	}
+
+	div {
+		margin-bottom: 20px;
+	}
+
+	input[type="text"] {
+		width: 200px;
+		height: 30px;
+		padding-left: 10px;
+		font-size: 15px;
+		border-radius: 5px;
+	}
+
+	table {
+		width: 600px;
+		border: 1px solid gray;
+		margin-top: 20px;
+		text-align: center;
+		border-radius: 5px;
+	}
+</style>
+</head>
+
+<body>
+
+	</head>
+
+	<body>
+		<div id="app">
+			
+		
+				
+					<span><label for="username">姓名：</label>
+					<input  type="text" placeholder="请输入姓名" id="username" v-model="person.name"><br/>
+				</span>
+				<span>
+					<label for="age">年龄：</label>
+					<input type="text" id="age" placeholder="请输入年龄" v-model="person.age"><br />
+				</span>
+				<span>
+				<label for="gender">性别：</label>
+				<input type="text" id="gender" placeholder="请输入性别" v-model="person.gender"><br />
+				</span>
+				<button @click="createUser">创建</button>
+				<button @click="baocun">提交</button>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>年龄</th>
+						<th></th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody style="font-size: 14px;" v-for="(item,index) in personList">
+					<tr>
+						<td>{{item.name}}</td>
+						<td>{{item.gender}}</td>
+						<td>{{item.age}}</td>
+						<td></td>
+						
+						<td>
+							<button style="background: indianred; font-size: 15px;" @click="deleteItem(index)">删除</button>
+							<button style="background: indianred; font-size: 15px;"  @click="editItem(index)">编辑</button>
+						</td>
+				
+					</tr>
+					<tr>
+						<td>
+							<p v-show="personList.length==0">您还没创建用户</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</body>
+	
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				personList: [{
+					name: "老大",
+					age: 18,
+					tel: 13930213799,
+					gender: "男"
+				},
+				{
+					name: "老二",
+					age: 18,
+					tel: 13833258909,
+					gender: "女"
+				},
+				{
+					name: "老三",
+					age: 18,
+					tel: 18810420142,
+					gender: "女"
+				},
+				{
+					name: "老四",
+					age: 18,
+					tel: 18515093770,
+					gender: "男"
+				}
+				],
+				person: {
+					name: "",
+					gender: "请输入性别"
+				},
+				id: ""
+			},
+			methods: {
+				createUser() {
+					if (!this.person.name) {
+						alert("请输入用户名")
+						return
+					}
+					if (!this.person.age) {
+						alert("请输入年龄")
+						return
+					}
+					if (!this.person.gender) {
+						alert("请输入性别")
+						return
+					}
+					if (!this.person.tel) {
+						alert("请输入手机号")
+						return
+					}
+					this.personList.unshift(this.person);
+					this.person = {
+						name: "",
+						gender: "男"
+					}
+				},
+				deleteItem(index) {
+					this.personList.splice(index, 1);
+				},
+				editItem(index) {
+					this.id = index;
+					this.person.name = this.personList[index].name
+					this.person.age = this.personList[index].age
+					this.person.gender = this.personList[index].gender
+					this.person.tel = this.personList[index].tel
+				},
+				baocun() {
+					this.personList[this.id].name = this.person.name,
+						this.personList[this.id].age = this.person.age,
+						this.personList[this.id].gender = this.person.gender,
+						this.personList[this.id].tel = this.person.tel,
+						this.person = {
+							name: "",
+							gender: "男"
+						}
+					this.id = "";
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>

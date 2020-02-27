@@ -1,0 +1,9 @@
+<view class="navbar-container">
+  <!-- 1.使用一个滚动的容器 -->
+  <scroll-view class="navbar-box" scroll-x="{{true}}">
+    <!-- 在小程序里是无法给事件绑定的函数显示传参的，我们只能用data-prop传参，那么在事件函数体中调用dataset的对象来获取元素上自定义的参数 -->
+    <view wx:for="{{data}}" wx:key="index" class="{{index === activeIndex? 'nav-active':''}}" bind:tap="setIndex" data-index="{{index}}">
+      <navigator url="/pages/tvlist/tvlist?id={{item.id}}">{{item.name}}</navigator>
+    </view>
+  </scroll-view>
+</view>

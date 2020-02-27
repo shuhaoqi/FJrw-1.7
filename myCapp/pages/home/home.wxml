@@ -1,0 +1,14 @@
+<!-- pages/home/home.wxml -->
+<view class="home">
+    <!-- 头部 -->
+    <Header />
+    <!-- 导航 -->
+    <Navbar data="{{navList}}" />
+    <!-- 轮播 -->
+    <import src="./swiper/index.wxml" /> 
+    <template is="swiper" data="{{list}}"></template>
+    <!-- 视频卡片 -->
+    <view class="video-cart-box">
+        <Vidoecart wx:for="{{acrtlist}}" wx:key="index" data="{{item}}" />
+    </view>
+</view>

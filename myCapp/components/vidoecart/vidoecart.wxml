@@ -1,0 +1,6 @@
+<view class="vidocart" bind:tap="goTvDetail">
+  <view class="videoImg">
+    <image src="{{data.img}}" />
+  </view>
+  <view class="videoText">{{data.name}}</view>
+</view>
